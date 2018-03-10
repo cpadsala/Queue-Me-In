@@ -1,0 +1,69 @@
+<div class="container">
+  <h2 class="well">Merchant Registration Form</h2>
+  <div class="col-xs-12 well">
+    <div class="row">
+      {{#if errors}}
+        {{#each errors}}
+          <div class="alert alert-danger">{{msg}}</div>
+        {{/each}}
+      {{/if}}
+      <form method="post" action="/merchant/registermerchant">
+        <div class="col-xs-12">
+          <div class="row">
+            <div class="col-xs-6 form-group">
+              <label>First Name</label>
+              <input type="text" class="form-control" placeholder="Enter First Name Here" name="firstname" required>
+            </div>
+            <div class="col-xs-6 form-group">
+              <label>Last Name</label>
+              <input type="text" class="form-control" placeholder="Enter Last Name Here..." name="lastname" required>
+            </div> 
+          </div>
+          <div class="row">
+            <div class="col-xs-6 form-group">
+              <label>Email</label>
+              <input type="email" class="form-control" placeholder="Enter Email Address Here..." name="email" required>
+            </div>
+            <div class="col-xs-6 form-group">
+              <label>Phone Number</label>
+              <input type="tel" class="form-control" placeholder="Enter Business Phone Number Here..." name="phonenumber" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 form-group">
+              <label>Password</label>
+              <input type="password" class="form-control" placeholder="Enter Password Here..." name="password" required>
+            </div>
+            <div class="col-xs-6 form-group">
+              <label>Confirm Password</label>
+              <input type="password" class="form-control" placeholder="Confirm Password Here..." name="password2" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Business Name</label>
+            <input type="text" class="form-control" placeholder="Enter Business Name Here..." name="businessname" requried>
+          </div>
+          <div class="form-group">
+            <label>Business Address</label>
+            <input type="text" class="form-control" placeholder="Enter Business Address Here..." name="businessAddress" required>
+          </div>
+          <div class="row">
+            <div class="col-xs-4 form group">
+              <label>City</label>
+              <input type="text" class="form-control" placeholder="Enter Business City Here..." name="businessCity" required>
+            </div>
+            <div class="col-xs-4 form-group">
+              <label>State</label>
+              <input type="text" class="form-control" placeholder="Enter Business State Here..." name="businessState" required>
+            </div>
+            <div class="col-xs-4 form-controlm">
+              <label>Zip</label>
+              <input type="text" class="form-control" placeholder="Enter Zip Code Here..." name="businessZip" required>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-lg btn-info">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

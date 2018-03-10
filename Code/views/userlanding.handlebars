@@ -1,0 +1,49 @@
+ {{#unless user.businessname}}
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4>Merchant Listing</h4>
+			</div>
+			<div class="settablescroll2">
+			<table class="table">
+			<thead class="thead-inverse">
+					<tr>
+						<th class="col-xs-4">Name</th>
+						<th class="col-xs-4">Address</th>
+						<th class="col-xs-2">Phone Number</th>
+						<th class="col-xs-2" style="text-align: center">QmeIn</th>
+					</tr>
+			</thead>
+			</table>
+			</div>
+			
+			<div class="settablescroll">
+			<table class="table">
+				{{#each merchdata}}
+				<tbody>
+					<tr>
+						<td class="col-xs-4"><div class="newfont">{{businessname}}</div></td>
+						<td class="col-xs-4">{{businessAddress}}<br>{{businessCity}}, {{businessState}} {{businessZip}}</td>
+						<td class="col-xs-2">{{phonenumber}}</td>
+						<td class="col-xs-2" style="text-align: center">
+							<!-- QueMeIn button -->
+							<form method="post" action="/users/addtoqueue">
+	 							<div class="form-group">
+									<input type="hidden" class="form-control" name="firstname" value={{@root.user.firstname}}>
+									<input type="hidden" class="form-control" name="lastname" value={{@root.user.lastname}}>
+									<input type="hidden" class="form-control" name="email" value={{@root.user.username}}>
+									<input type="hidden" class="form-control" name="phonenumber" value={{@root.user.phonenumber}}>
+									<input type="hidden" class="form-control" name="businessQueued" value={{businessUniqueID}}>
+									<input type="hidden" class="form-control" name="queued" value="true">
+	  								<button type="submit" class="button"><span>QmeIn</span></button></div>
+							</form>
+						</td>
+					</tr>
+				</tbody>
+				{{/each}}
+			</table>
+			</div>
+		</div>
+	<br></br>
+	</div>
+</div>
+{{/unless}}

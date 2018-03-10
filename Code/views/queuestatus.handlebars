@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="row">
+		<div class="panel panel-default">
+			<div class="textthis">
+			<div class="panel-heading">
+				<h3>Hello, <strong>{{user.firstname}}</strong> <strong>{{user.lastname}}</strong>!</h3>
+				<h3>You are in the <strong>{{merchdata.businessname}}</strong> Queue.</h3>
+			</div>
+			<div class="panel-body">
+			
+				<p>There is/are <strong>{{count}}</strong> user(s) in queue.</p>
+				<p>Your position in queue is <strong>{{position}}</strong>.</p>
+				<p>With an average transaction time of <strong>2</strong> minutes,
+				your average wait time is <strong>{{waitTime}}</strong> minutes.</p>
+			</div>
+			</div>
+			<div class="panel-footer">  
+				<form method="post" action="/users/queuemeout">
+					<div class="form-group">
+					<input type="hidden" class="form-control" name="email" value={{user.username}}>
+					<input type="hidden" class="form-control" name="queue" value="{{merchdata.businessUniqueID}}">
+					</div>
+					<button type="submit" class="button"><span>QmeOut</span></button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

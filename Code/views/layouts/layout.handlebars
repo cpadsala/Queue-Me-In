@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>QmeIn</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.carousel').carousel({interval: 7000});
+    });
+  </script>
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    .carousel { z-index: -99; } /* keeps this behind all content */
+    .carousel .item {
+      position: fixed; 
+      opacity: 0;
+      left:0 !important;
+      width: 100%; height: 100%;
+      -webkit-transition: opacity 0.5s;
+      -moz-transition: opacity 0.5s;
+      -ms-transition: opacity 0.5s;
+      -o-transition: opacity 0.5s;
+      transition: opacity 0.5s;
+    }
+    .carousel .one {
+      background: url("/images/back1.jpg");
+      background-size: cover;
+      -moz-background-size: cover;
+    }
+    .carousel .two {
+      background: url("/images/back2.jpg");
+      background-size: cover;
+      -moz-background-size: cover;
+    }
+    .carousel .three {
+      background: url("/images/back3.jpg");
+      background-size: cover;
+      -moz-background-size: cover;
+    }
+    .carousel .active {
+      opacity: 1 !important;
+    }
+    .carousel .left {
+      opacity: 1 !important;
+      -webkit-transition: opacity 0.5s  !important;
+      -moz-transition: opacity 0.5s  !important;
+      -ms-transition: opacity 0.5s  !important;
+      -o-transition: opacity 0.5s  !important;
+      transition: opacity 0.5s  !important;
+    }
+  </style>
+  
+   <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="active item one"></div>
+      <div class="item two"></div>
+      <div class="item three"></div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Homepage</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        {{#if user}}
+          <ul class="nav navbar-nav navbar-right">
+            <li role="presentation"><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          </ul>
+        {{else}}
+          <ul class="nav navbar-nav navbar-right">
+            <li role="presentation"><a href="/registerUser">New User</a></li>
+            <li role="presentation"><a href="/registerMerchant">New Merchant</a></li>
+            <li role="presentation"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+        {{/if}}
+      </div>
+    </div>
+  </nav>
+  
+</head>
+<br></br>
+
+ 
+  
+
+    <div class="boxshadow">
+      <div class="center">
+        
+		<div class="container-fluid text-center">
+		  <br></br>
+          <img src="/images/logo.png" id=logo style="padding: 10px;width: 150px;">
+        </div>
+        
+        <div class="container-fluid text-center">  
+          {{#if success_msg}}
+            <div class="alert alert-success">{{success_msg}}</div>
+          {{/if}}
+
+          {{#if error_msg}}
+            <div class="alert alert-danger">{{error_msg}}</div>
+          {{/if}}
+
+          {{#if error}}
+            <div class="alert alert-danger">{{error}}</div>
+          {{/if}}
+        </div>
+      </div>
+
+	  <body>
+	  {{{body}}}
+	  </body>
+	  
+      
+    </div>
+	
+</html>
